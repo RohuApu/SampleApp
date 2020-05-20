@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<style>
+.jumbotron{background-color: transparent !important;}
+body{
+	color: white !important;
+	background-image: url(https://images.unsplash.com/photo-1549421263-5ec394a5ad4c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9);
+	background-size: cover;
+	font-size: 140%
+	
+	}
+
+form{
+
+    margin: auto;
+    padding: 2%;
+    width: 60%;
+    border:2px solid rgb(192,192,192);
+    margin-top: 15%;
+}
+.result {
+    margin: auto;
+    width: 60%;
+    font-size: 2em;
+    text-transform: capitalize;
+}
+#head{
+	width: 80%;
+}
+
+</style>
+<head>
+	<title>Reliance Stock Trend Prediction</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity=sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh">
+	
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+		
+		<form action="{{ url_for('main') }}" method="POST">
+ 
+    		<h1>Reliance Stock Trend Prediction</h1>
+    		<br>
+        		<label for='head'><b>Headline:</b></label>
+        		<input id='head' name="headline" type="text" required>
+        	<br>
+        	
+        		<label for='sop'><b>Stock Opening Price:</b></label>
+        		<input id='sop' type="text" name="stockopprice" required>
+        	<br>
+
+        		<input type="submit" class="btn btn-success brn-lg">
+		</form>
+<div class="result"><br>
+<hr>
+<b>{{string}}{{prediction}}</b>
+
+</div>	
+</div>
+</div>
+</body>
+</html>
