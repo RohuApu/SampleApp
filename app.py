@@ -54,4 +54,4 @@ def main():
         return flask.render_template('main.html',string=str,prediction='{}'.format(output))
 
     if __name__ == '__main__':
-    app.run()
+        app.run()
