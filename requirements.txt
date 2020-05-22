@@ -3,5 +3,3 @@ numpy
 flask
 gunicorn
 nltk
-sklearn==0.19.1
-scikit-learn
