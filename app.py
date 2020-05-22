@@ -21,18 +21,23 @@ app.logger.setLevel(logging.ERROR)
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
+    print("HERE..............1")
     if flask.request.method == 'GET':
+        print("HERE..............2")
         return(flask.render_template('main.html'))
     if flask.request.method == 'POST':
+        print("HERE..............3")
         headline = flask.request.form.get('headline')
         opprice=flask.request.form.get('stockopprice')
         punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
         no_punct = ""
+        print("HERE..............4")
         for char in headline:
             if char not in punctuations:
                 no_punct = no_punct + char
         sentence=no_punct        
         sentence_vectors = []
+        print("HERE..............5")
         sentence_tokens = nltk.word_tokenize(sentence)
         sent_vec = []
         for token in most_freq:
