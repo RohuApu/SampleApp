@@ -6,7 +6,7 @@ import nltk
 import logging
 import sys
 
-
+nltk.download('punkt')
 app = flask.Flask(__name__, template_folder='templates')
 
 with open('model/bagofwordssvm.pkl', 'rb') as f:
@@ -38,7 +38,7 @@ def main():
         sentence=no_punct        
         sentence_vectors = []
         print("HERE..............5")
-        sentence_tokens = nltk.word_tokenize(sentence)
+        sentence_tokens = nltk.tokenize.word_tokenize(sentence)
         sent_vec = []
         print("HERE..............6")
         for token in most_freq:
