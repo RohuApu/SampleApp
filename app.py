@@ -4,6 +4,10 @@ import pandas as pd
 import numpy as np
 import pickle
 import nltk
+import logging
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 app = flask.Flask(__name__, template_folder='templates')
 
