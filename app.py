@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import pickle
 import nltk
-import logging
+
 
 
 app = flask.Flask(__name__, template_folder='templates')
@@ -14,8 +14,6 @@ with open('model/bagofwordssvm.pkl', 'rb') as f:
 with open('model/bagofwordsvector300.pkl', 'rb') as f:
     most_freq = pickle.load(f)
 
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
