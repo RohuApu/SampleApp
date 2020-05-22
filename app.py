@@ -5,8 +5,6 @@ import pickle
 import nltk
 import logging
 
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
 
 app = flask.Flask(__name__, template_folder='templates')
 
@@ -16,6 +14,8 @@ with open('model/bagofwordssvm.pkl', 'rb') as f:
 with open('model/bagofwordsvector300.pkl', 'rb') as f:
     most_freq = pickle.load(f)
 
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
@@ -52,5 +52,6 @@ def main():
             output='be neutral'
         str='Stocks expected to : '
         return flask.render_template('main.html',string=str,prediction='{}'.format(output))
-if __name__ == '__main__':
+
+    if __name__ == '__main__':
     app.run()
