@@ -1,5 +1,4 @@
 import flask
-import re
 import pandas as pd
 import numpy as np
 import pickle
@@ -25,9 +24,13 @@ def main():
     if flask.request.method == 'POST':
         headline = flask.request.form.get('headline')
         opprice=flask.request.form.get('stockopprice')
-        headline=' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", " ", headline).split())
+        punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+        no_punct = ""
+        for char in my_str:
+            if char not in punctuations:
+                no_punct = no_punct + char
+        sentence=no_punct        
         sentence_vectors = []
-        sentence=headline
         sentence_tokens = nltk.word_tokenize(sentence)
         sent_vec = []
         for token in most_freq:
