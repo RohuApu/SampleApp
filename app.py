@@ -24,7 +24,7 @@ def main():
         opprice=flask.request.form.get('stockopprice')
         punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
         no_punct = ""
-        for char in my_str:
+        for char in headline:
             if char not in punctuations:
                 no_punct = no_punct + char
         sentence=no_punct        
