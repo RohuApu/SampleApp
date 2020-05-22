@@ -40,16 +40,19 @@ def main():
         print("HERE..............5")
         sentence_tokens = nltk.word_tokenize(sentence)
         sent_vec = []
+        print("HERE..............6")
         for token in most_freq:
             if token in sentence_tokens:
                 sent_vec.append(1)
             else:
                 sent_vec.append(0)
+        print("HERE..............7")
         sentence_vectors.append(sent_vec)
         sentence_vectors = np.asarray(sentence_vectors)
+        print("HERE..............8")
         sentence_vectors=np.append(sentence_vectors,[opprice])
         features = [sentence_vectors]
-        
+        print("HERE..............9")
         prediction = model.predict(features)
         if(prediction==1):
             output='rise'
@@ -58,6 +61,7 @@ def main():
         elif(prediction==0):
             output='be neutral'
         str='Stocks expected to : '
+        print("HERE..............10")
         return(flask.render_template('main.html',string=str,prediction='{}'.format(output)))
 if __name__ == '__main__':
     app.run()
