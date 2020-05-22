@@ -10,6 +10,7 @@ nltk.download('punkt')
 app = flask.Flask(__name__, template_folder='templates')
 
 with open('model/bagofwordssvm.pkl', 'rb') as f:
+    print("MODEL LOADED--------------")
     model = pickle.load(f)
 
 with open('model/bagofwordsvector300.pkl', 'rb') as f:
