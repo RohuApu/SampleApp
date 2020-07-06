@@ -9,9 +9,9 @@ import sys
 nltk.download('punkt')
 app = flask.Flask(__name__, template_folder='templates')
 
-with open('model/bagofwordssvm.pkl', 'rb') as f:
+with open('model/bagofwordsdtree.pkl', 'rb') as f:
     print("MODEL LOADED--------------")
-    model = pickle.load(f)
+    dtree = pickle.load(f)
 
 with open('model/bagofwordsvector300.pkl', 'rb') as f:
     most_freq = pickle.load(f)
@@ -54,14 +54,12 @@ def main():
         sentence_vectors=np.append(sentence_vectors,[opprice])
         features = [sentence_vectors]
         print("HERE..............9")
-        prediction = model.predict(features)
+        prediction = dtree.predict(features)
         print("HERE..............10")
         if(prediction==1):
             output='rise'
         elif(prediction==-1):
             output='fall'
-        elif(prediction==0):
-            output='be neutral'
         str='Stocks expected to : '
         print("HERE..............11")
         return(flask.render_template('main.html',string=str,prediction='{}'.format(output)))
