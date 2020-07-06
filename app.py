@@ -9,9 +9,9 @@ import sys
 nltk.download('punkt')
 app = flask.Flask(__name__, template_folder='templates')
 
-with open('model/bagofwordsdtree.pkl', 'rb') as f:
+with open('model/bagofwordssvm.pkl', 'rb') as f:
     print("MODEL LOADED--------------")
-    dtree = pickle.load(f)
+    model = pickle.load(f)
 
 with open('model/bagofwordsvector300.pkl', 'rb') as f:
     most_freq = pickle.load(f)
