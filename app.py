@@ -54,7 +54,7 @@ def main():
         sentence_vectors=np.append(sentence_vectors,[opprice])
         features = [sentence_vectors]
         print("HERE..............9")
-        prediction = dtree.predict(features)
+        prediction = model.predict(features)
         print("HERE..............10")
         if(prediction==1):
             output='rise'
